@@ -7,10 +7,12 @@ class Demo extends StatefulWidget {
 }
 
 class _DemoState extends State<Demo> {
+  final TextEditingController _ageController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
 
   double _result = 0;
+  String _message = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +26,15 @@ class _DemoState extends State<Demo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            TextField(
+              controller: _ageController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                  labelText: 'Age in years', icon: Icon(Icons.calendar_month)),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             TextField(
               controller: _heightController,
               keyboardType: TextInputType.number,
@@ -66,6 +77,17 @@ class _DemoState extends State<Demo> {
                 fontSize: 19.4,
                 fontWeight: FontWeight.w500,
               ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              _message == "" ? "" : _message,
+              style: TextStyle(
+                color: Colors.pink.shade900,
+                fontSize: 26,
+                fontWeight: FontWeight.w200,
+              ),
             )
           ],
         ),
@@ -80,6 +102,27 @@ class _DemoState extends State<Demo> {
     double heightSquare = height * height;
     double result = wieght / heightSquare;
     _result = result;
+    _message = checkBMI(result);
     setState(() {});
+  }
+
+  String checkBMI(double bmi) {
+    String message;
+
+    if (bmi < 16) {
+      message = "Severe Thinness";
+    } else if (bmi >= 16 && bmi < 17) {
+      message = "Moderate Thinness";
+    } else if (bmi >= 17 && bmi < 18.5) {
+      message = "Mild Thinness";
+    } else if (bmi >= 19.5 && bmi < 25) {
+      message = "Normal";
+    } else if (bmi >= 25 && bmi < 30) {
+      message = "Overweight";
+    } else {
+      message = "Obese";
+    }
+
+    return message;
   }
 }
