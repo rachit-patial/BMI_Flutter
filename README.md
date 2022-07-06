@@ -1,16 +1,7 @@
 # bmi_flutter
 
-A new Flutter project.
+A new Flutter project which takes the Age, Height and Weight from user and calcualte the BMI and tell the user which range he falls in.
 
-## Getting Started
+## ScreenShots
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![demoBmi](https://user-images.githubusercontent.com/85640206/177558960-5876b35d-15d8-441b-b599-c579be837311.jpg)
